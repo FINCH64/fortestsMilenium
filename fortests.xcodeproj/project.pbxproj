@@ -17,6 +17,8 @@
 		8AA1BCA12C57DC3000B3C529 /* fortestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BCA02C57DC3000B3C529 /* fortestsTests.swift */; };
 		8AA1BCAB2C57DC3000B3C529 /* fortestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BCAA2C57DC3000B3C529 /* fortestsUITests.swift */; };
 		8AA1BCAD2C57DC3000B3C529 /* fortestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BCAC2C57DC3000B3C529 /* fortestsUITestsLaunchTests.swift */; };
+		8AA1BCBE2C57DDF000B3C529 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BCBD2C57DDF000B3C529 /* LaunchView.swift */; };
+		8AA1BCC12C58E77400B3C529 /* VerificationCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BCC02C58E77400B3C529 /* VerificationCodeTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		8AA1BCA62C57DC3000B3C529 /* fortestsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fortestsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA1BCAA2C57DC3000B3C529 /* fortestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fortestsUITests.swift; sourceTree = "<group>"; };
 		8AA1BCAC2C57DC3000B3C529 /* fortestsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fortestsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8AA1BCBD2C57DDF000B3C529 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		8AA1BCC02C58E77400B3C529 /* VerificationCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		8AA1BC7A2C57DC2B00B3C529 = {
 			isa = PBXGroup;
 			children = (
+				8AA1BCBF2C58E74C00B3C529 /* VerificationCodeTextField */,
 				8AA1BC852C57DC2B00B3C529 /* fortests */,
 				8AA1BC9F2C57DC3000B3C529 /* fortestsTests */,
 				8AA1BCA92C57DC3000B3C529 /* fortestsUITests */,
@@ -109,6 +114,7 @@
 				8AA1BC942C57DC2F00B3C529 /* LaunchScreen.storyboard */,
 				8AA1BC972C57DC2F00B3C529 /* Info.plist */,
 				8AA1BC8F2C57DC2B00B3C529 /* fortests.xcdatamodeld */,
+				8AA1BCBD2C57DDF000B3C529 /* LaunchView.swift */,
 			);
 			path = fortests;
 			sourceTree = "<group>";
@@ -128,6 +134,14 @@
 				8AA1BCAC2C57DC3000B3C529 /* fortestsUITestsLaunchTests.swift */,
 			);
 			path = fortestsUITests;
+			sourceTree = "<group>";
+		};
+		8AA1BCBF2C58E74C00B3C529 /* VerificationCodeTextField */ = {
+			isa = PBXGroup;
+			children = (
+				8AA1BCC02C58E77400B3C529 /* VerificationCodeTextField.swift */,
+			);
+			path = VerificationCodeTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AA1BC8B2C57DC2B00B3C529 /* ViewController.swift in Sources */,
+				8AA1BCBE2C57DDF000B3C529 /* LaunchView.swift in Sources */,
 				8AA1BC872C57DC2B00B3C529 /* AppDelegate.swift in Sources */,
+				8AA1BCC12C58E77400B3C529 /* VerificationCodeTextField.swift in Sources */,
 				8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */,
 				8AA1BC912C57DC2B00B3C529 /* fortests.xcdatamodeld in Sources */,
 			);
@@ -446,7 +462,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = fortests/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -473,7 +488,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = fortests/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
