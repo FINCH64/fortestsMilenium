@@ -75,6 +75,7 @@ class VerificationCodeTextField: UITextField {
         textColor = .clear
         font = UIFont.systemFont(ofSize: 20)
         keyboardType = .numberPad
+        textContentType = .oneTimeCode
         clearsOnInsertion = true
         autocapitalizationType = .none
         autocorrectionType = .no
