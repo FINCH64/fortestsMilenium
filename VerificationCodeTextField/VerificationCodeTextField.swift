@@ -39,7 +39,7 @@ enum CodeCellsStyles {
 
 class VerificationCodeTextField: UITextField {
     
-    var didEnterLastDigit: ((String) -> ())?
+    var didEnterLastDigit: ((String) -> (Bool))?
     private var isConfigured: Bool = false
     private var digitLabels = [UILabel]()
     private var digitCells = [UICollectionViewCell]()
@@ -163,8 +163,19 @@ class VerificationCodeTextField: UITextField {
         }
         
         if text.count == digitLabels.count {
-            setCellsStyle(borderColor: CodeCellsStyles.sucessStateColor, labelColor: CodeCellsStyles.sucessStateColor,withAnimation: false)
-            didEnterLastDigit?(text)
+            let sucess = didEnterLastDigit?(text) ?? nil
+            
+            switch sucess {
+            case true:
+                setCellsStyle(borderColor: CodeCellsStyles.sucessStateColor, labelColor: CodeCellsStyles.sucessStateColor, withAnimation: false)
+                break
+            case false:
+                setCellsStyle(borderColor: CodeCellsStyles.errorStateColor, labelColor: CodeCellsStyles.errorStateColor, withAnimation: true)
+                break
+            default:
+                break
+
+            }
         }
     }
     

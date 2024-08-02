@@ -29,6 +29,7 @@ class ViewController: UIViewController {
             alert.addAction(okAction)
             
             self?.present(alert,animated: true)
+            return true
         }
         
         self.view.addSubview(verificationCodeTextField)
