@@ -35,6 +35,8 @@ enum CodeCellsStyles {
 }
 
 //Mark: Verification text field implementation
+//thats the UITextField and UICollectionView inside to display cells of verification code
+
 class VerificationCodeTextField: UITextField {
     
     var didEnterLastDigit: ((String) -> ())?
@@ -73,7 +75,6 @@ class VerificationCodeTextField: UITextField {
         textColor = .clear
         font = UIFont.systemFont(ofSize: 20)
         keyboardType = .numberPad
-        //textContentType = .oneTimeCode
         clearsOnInsertion = true
         autocapitalizationType = .none
         autocorrectionType = .no
@@ -82,6 +83,7 @@ class VerificationCodeTextField: UITextField {
         smartQuotesType = .no
         spellCheckingType = .no
         returnKeyType = .done
+        clearsOnBeginEditing = false
         
         addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         addTarget(self, action: #selector(editingStarted), for: .editingDidBegin)
@@ -139,11 +141,12 @@ class VerificationCodeTextField: UITextField {
             }
         }
         
-        setCellsStyle(borderColor: CodeCellsStyles.emptyStatecolor, labelColor: CodeCellsStyles.emptyStatecolor)
+        setCellsStyle(borderColor: CodeCellsStyles.emptyStatecolor, labelColor: CodeCellsStyles.emptyStatecolor,withAnimation: false)
         
         return stackView
     }
     
+    //on any textChange we check data and update cells,if field is full than call sucess closure
     @objc
     private func textDidChange() {
         guard let text = self.text, text.count <= digitLabels.count else {return}
@@ -160,15 +163,14 @@ class VerificationCodeTextField: UITextField {
         }
         
         if text.count == digitLabels.count {
-            
-            setCellsStyle(borderColor: CodeCellsStyles.sucessStateColor, labelColor: CodeCellsStyles.sucessStateColor)
+            setCellsStyle(borderColor: CodeCellsStyles.sucessStateColor, labelColor: CodeCellsStyles.sucessStateColor,withAnimation: false)
             didEnterLastDigit?(text)
         }
     }
     
     @objc
     private func editingStarted() {
-        setCellsStyle(borderColor: CodeCellsStyles.typingStateColor, labelColor: CodeCellsStyles.typingStateDigitColor)
+        setCellsStyle(borderColor: CodeCellsStyles.typingStateColor, labelColor: CodeCellsStyles.typingStateDigitColor,withAnimation: false)
     }
     
     func isOnlyDigitsInString(string: String) -> Bool {
@@ -178,7 +180,7 @@ class VerificationCodeTextField: UITextField {
         return digits.isSuperset(of: stringSet)
     }
     
-    func setCellsStyle(borderColor: UIColor,labelColor: UIColor) {
+    func setCellsStyle(borderColor: UIColor,labelColor: UIColor,withAnimation: Bool) {
         digitCells.forEach {cell in
             cell.contentView.layer.borderColor = borderColor.cgColor
         }
@@ -186,8 +188,12 @@ class VerificationCodeTextField: UITextField {
         digitLabels.forEach{label in
             label.textColor = labelColor
         }
+        
+        //for change to error state
+        if withAnimation {
+            self.shake(10, withDelta: 1)
+        }
     }
-    
 }
 
 extension VerificationCodeTextField: UITextFieldDelegate {
@@ -195,17 +201,20 @@ extension VerificationCodeTextField: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if !isOnlyDigitsInString(string: string) {
-            setCellsStyle(borderColor: CodeCellsStyles.errorStateColor, labelColor: CodeCellsStyles.errorStateColor)
+            setCellsStyle(borderColor: CodeCellsStyles.errorStateColor, labelColor: CodeCellsStyles.errorStateColor,withAnimation: true)
             //call alert function indicating that you can input only numbers
             return false
         } else {
-            setCellsStyle(borderColor: CodeCellsStyles.typingStateColor, labelColor: CodeCellsStyles.typingStateDigitColor)
+            setCellsStyle(borderColor: CodeCellsStyles.typingStateColor, labelColor: CodeCellsStyles.typingStateDigitColor,withAnimation: false)
         }
         
+        //if input string > 1,means that we are pasting something,the we need to reset field text
         if string.count > 1 {
             textField.text?.removeAll()
         }
         
+        //afterEditing - num of chars that will be inside of text field,
+        //made to slice string to paste only needed count of numbers from string that we wanna past
         let charactersOldCount = textField.text?.count ?? 0
         let charactersNewCount = string.count
         let charactersCountAfterEditing = charactersOldCount + charactersNewCount
@@ -214,6 +223,7 @@ extension VerificationCodeTextField: UITextFieldDelegate {
             return false
         }
         
+        //slicing and appending input string
         if charactersCountAfterEditing > CodeCellsStyles.defaultCellsCount {
             let startIndex = string.startIndex
             let lowerIndex = string.index(startIndex, offsetBy: 0)
@@ -228,9 +238,28 @@ extension VerificationCodeTextField: UITextFieldDelegate {
         return true
     }
     
+    
+    //disabling all options in text menu,excluding paste
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         guard action != #selector(paste(_:)) else {return super.canPerformAction(action, withSender: sender)}
 
         return false
     }
+    
+    //setting coursor to the end,so we cant paste in the midle
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let newPosition = textField.endOfDocument
+        let newRange = textField.textRange(from: newPosition, to: newPosition)
+        textField.selectedTextRange = newRange
+
+    }
+    
+    //disabling auto text selection after finish of editing
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let newPosition = textField.endOfDocument
+        let newRange = textField.textRange(from: newPosition, to: newPosition)
+        textField.selectedTextRange = newRange
+        return true
+    }
+       
 }

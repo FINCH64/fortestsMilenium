@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A29EE1A2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */; };
+		8A29EE1B2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */; };
+		8A29EE1C2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */; };
 		8AA1BC872C57DC2B00B3C529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC862C57DC2B00B3C529 /* AppDelegate.swift */; };
 		8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC882C57DC2B00B3C529 /* SceneDelegate.swift */; };
 		8AA1BC8B2C57DC2B00B3C529 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC8A2C57DC2B00B3C529 /* ViewController.swift */; };
@@ -39,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Shake.swift"; sourceTree = "<group>"; };
 		8AA1BC832C57DC2B00B3C529 /* fortests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fortests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA1BC862C57DC2B00B3C529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AA1BC882C57DC2B00B3C529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		8AA1BCA92C57DC3000B3C529 /* fortestsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */,
 				8AA1BCAA2C57DC3000B3C529 /* fortestsUITests.swift */,
 				8AA1BCAC2C57DC3000B3C529 /* fortestsUITestsLaunchTests.swift */,
 			);
@@ -277,6 +282,7 @@
 			files = (
 				8AA1BC8B2C57DC2B00B3C529 /* ViewController.swift in Sources */,
 				8AA1BCBE2C57DDF000B3C529 /* LaunchView.swift in Sources */,
+				8A29EE1A2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */,
 				8AA1BC872C57DC2B00B3C529 /* AppDelegate.swift in Sources */,
 				8AA1BCC12C58E77400B3C529 /* VerificationCodeTextField.swift in Sources */,
 				8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */,
@@ -288,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A29EE1B2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */,
 				8AA1BCA12C57DC3000B3C529 /* fortestsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AA1BCAD2C57DC3000B3C529 /* fortestsUITestsLaunchTests.swift in Sources */,
+				8A29EE1C2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */,
 				8AA1BCAB2C57DC3000B3C529 /* fortestsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
