@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         let verificationCodeTextField = VerificationCodeTextField(frame: CGRect(x: 50, y: 300, width: 293, height: 40))
         
         verificationCodeTextField.configure()
-        verificationCodeTextField.didEnterLastDigit = { [weak self] code in
+        verificationCodeTextField.setHandlerForInput(handler: { [weak self] code in
             print(code)
             //guard let microserviceForVeryfiing = microserviceForVeryfiing.shared
             //if let microserviceForVeryfiing.shared.verify {
@@ -29,8 +29,7 @@ class ViewController: UIViewController {
             alert.addAction(okAction)
             
             self?.present(alert,animated: true)
-            return true
-        }
+        })
         
         self.view.addSubview(verificationCodeTextField)
         
