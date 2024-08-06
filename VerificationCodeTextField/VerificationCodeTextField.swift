@@ -15,6 +15,11 @@ class VerificationCodeTextField: UITextField {
     private var isConfigured: Bool = false
     private var digitLabels = [UILabel]()
     private var digitCells = [UICollectionViewCell]()
+    private lazy var tapRecoghnizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer()
+        recognizer.addTarget(self, action: #selector(becomeFirstResponder))
+        return recognizer
+    }()
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,11 +30,26 @@ class VerificationCodeTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var tapRecoghnizer: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(becomeFirstResponder))
-        return recognizer
-    }()
+    func updateState(toState: States) {
+        switch toState {
+        case .empty:
+            setCellsStyle(borderColor: Constants.Colors.emptyStatecolor,
+                          labelColor: Constants.Colors.emptyStateDigitColor	,
+                          withAnimation: false)
+        case .typing:
+            setCellsStyle(borderColor: Constants.Colors.typingStateColor,
+                          labelColor: Constants.Colors.typingStateDigitColor    ,
+                          withAnimation: false)
+        case .sucess:
+            setCellsStyle(borderColor: Constants.Colors.sucessStateColor,
+                          labelColor: Constants.Colors.sucessStateDigitColor    ,
+                          withAnimation: false)
+        case .error:
+            setCellsStyle(borderColor: Constants.Colors.errorStateColor,
+                          labelColor: Constants.Colors.errorStateDigitColor    ,
+                          withAnimation: true)
+        }
+    }
     
     func setCellsStyle(borderColor: UIColor,labelColor: UIColor,withAnimation: Bool) {
         digitCells.forEach {cell in
@@ -151,8 +171,7 @@ private extension VerificationCodeTextField {
             }
         }
         
-        setCellsStyle(borderColor: Constants.Colors.emptyStatecolor, labelColor: Constants.Colors.emptyStatecolor
-                      ,withAnimation: false)
+        updateState(toState: .empty)
         
         return stackView
     }
@@ -211,7 +230,6 @@ private extension VerificationCodeTextField {
     
     @objc
     private func editingStarted() {
-        setCellsStyle(borderColor: Constants.Colors.typingStateColor, labelColor: Constants.Colors.typingStateDigitColor
-                      ,withAnimation: false)
+        updateState(toState: .typing)
     }
 }

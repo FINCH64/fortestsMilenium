@@ -14,9 +14,12 @@ extension VerificationCodeTextField {
         enum Colors {
             static let emptyStatecolor: UIColor = UIColor(named: "Grey 400") ?? .white
             static let typingStateColor : UIColor = UIColor(named: "Blue 400") ?? .blue
-            static let typingStateDigitColor : UIColor = .black
-            static let sucessStateColor: UIColor = UIColor(named: "Blue 500") ?? .green
+            static let sucessStateColor: UIColor = UIColor(named: "Blue 500") ?? .blue
             static let errorStateColor: UIColor = UIColor(named: "Red 500") ?? .red
+            static let emptyStateDigitColor : UIColor = UIColor(named: "Grey 300") ?? .gray
+            static let typingStateDigitColor : UIColor = .black
+            static let sucessStateDigitColor: UIColor = UIColor(named: "Blue 500") ?? .blue
+            static let errorStateDigitColor: UIColor = UIColor(named: "Red 500") ?? .red
         }
         
         enum UIStackView {
@@ -50,6 +53,13 @@ extension VerificationCodeTextField {
             static let timesRepeat: Int = 10
             static let delta: CGFloat = 1
         }
+    }
+    
+    enum States {
+        case empty
+        case typing
+        case sucess
+        case error
     }
     
 }

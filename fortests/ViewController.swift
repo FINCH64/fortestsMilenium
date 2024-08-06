@@ -43,6 +43,8 @@ class ViewController: UIViewController {
             alert.addAction(okAction)
             
             self.present(alert,animated: true)
+            primaryButton.updateState(toState: .inactive)
+            //primaryButton.isEnabled = false
         })
         
         self.view.addSubview(verificationCodeTextField)

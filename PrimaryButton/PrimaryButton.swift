@@ -23,6 +23,19 @@ class PrimaryButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateState(toState: States) {
+        switch toState {
+        case .`default`:
+            setButtonStyle(newBackgroundColor: Constants.Colors.defaultStateColor)
+        case .inactive:
+            setButtonStyle(newBackgroundColor: Constants.Colors.inactiveStateColor)
+        case .clicked:
+            setButtonStyle(newBackgroundColor: Constants.Colors.clickedStateColor)
+        case .loading:
+            setButtonStyle(newBackgroundColor: Constants.Colors.loadingStateColor)
+        }
+    }
+    
     func setButtonStyle(newBackgroundColor: UIColor) {
         backgroundColor = newBackgroundColor
     }
@@ -40,10 +53,12 @@ private extension PrimaryButton {
         guard isConfigured == false else {return}
         
         setTitle(titleText ?? Constants.UILabel.titleText, for: .normal)
-        setTitleColor(Constants.Colors.activeTextColor , for: .normal)
+        setTitleColor(Constants.Colors.defaultStateTextColor , for: .normal)
         setTitleColor(Constants.Colors.inactiveTextColor, for: .disabled)
+        setTitleColor(Constants.Colors.clickedStateTextColor, for: .selected)
+        
         layer.cornerRadius = Constants.UIButton.cornerRadius
-        setButtonStyle(newBackgroundColor: Constants.Colors.defaultStateColor)
+        updateState(toState: .default)
         addTarget(self, action: #selector(touchDown), for: .touchDown)
         isConfigured.toggle()
     }
@@ -53,7 +68,7 @@ private extension PrimaryButton {
     @objc
     private func touchDown() {
         didPressedAction?()
-        setButtonStyle(newBackgroundColor: Constants.Colors.clickedStateColor)
+        updateState(toState: .clicked)
     }
     
 }
