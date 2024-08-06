@@ -11,10 +11,19 @@ import UIKit
 
 class VerificationCodeTextField: UITextField {
     
-    private var didEnterLastDigit: ((String) -> ())?
+    private var didEnterLastDigitAction: ((String) -> ())?
     private var isConfigured: Bool = false
     private var digitLabels = [UILabel]()
     private var digitCells = [UICollectionViewCell]()
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var tapRecoghnizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
@@ -33,23 +42,12 @@ class VerificationCodeTextField: UITextField {
         
         //for change to error state
         if withAnimation {
-            self.shake(10, withDelta: 1)
+            shake(Constants.ShakeAnimation.timesRepeat, withDelta: Constants.ShakeAnimation.delta)
         }
     }
     
-    func configure() {
-        guard isConfigured == false else {return}
-
-        let stackView = createLabelsStackView(midleSeparator: true)
-        addSubview(stackView)
-        setupStackViewConstraints(stackView: stackView)
-        configureTextField()
-        addGestureRecognizer(tapRecoghnizer)
-        isConfigured.toggle()
-    }
-    
-    func setHandlerForInput(handler: @escaping ((String) -> ())) {
-        didEnterLastDigit = handler
+    func setOnLastDigitAction(handler: @escaping ((String) -> ())) {
+        didEnterLastDigitAction = handler
     }
 }
 
@@ -85,10 +83,21 @@ private extension VerificationCodeTextField {
     
     //MARK: - UI Setup
     
+    private func configure() {
+        guard isConfigured == false else {return}
+
+        let stackView = createLabelsStackView(midleSeparator: true)
+        addSubview(stackView)
+        setupStackViewConstraints(stackView: stackView)
+        configureTextField()
+        addGestureRecognizer(tapRecoghnizer)
+        isConfigured.toggle()
+    }
+    
     func configureTextField() {
         tintColor = .clear
         textColor = .clear
-        font = UIFont.systemFont(ofSize: 20)
+        font = Constants.UITextField.fontStyle
         keyboardType = .numberPad
         textContentType = .oneTimeCode
         clearsOnInsertion = true
@@ -109,13 +118,13 @@ private extension VerificationCodeTextField {
     
     func createLabelsStackView(midleSeparator: Bool = false) -> UIStackView {
         let stackView = UIStackView()
-        let count = Constants.defaultCellsCount
+        let count = Constants.UIStackView.cellsCount
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .fill
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = Constants.spacingBetweenCells
+        stackView.spacing = Constants.UIStackView.spacingBetweenCells
         
         for index in 1...count {
             let cell = UICollectionViewCell()
@@ -123,13 +132,13 @@ private extension VerificationCodeTextField {
             
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textAlignment = .center
-            label.font = Constants.digitFontStyle
+            label.font = Constants.UILabel.digitFontStyle
             label.isUserInteractionEnabled = true
-            label.text = Constants.labelPlaceholder
+            label.text = Constants.UILabel.labelPlaceholder
             
             cell.contentView.addSubview(label)
-            cell.contentView.layer.cornerRadius = Constants.cellCornerRadius
-            cell.contentView.layer.borderWidth = Constants.cellBorderWidth
+            cell.contentView.layer.cornerRadius = Constants.UICollectionViewCell.cellCornerRadius
+            cell.contentView.layer.borderWidth = Constants.UICollectionViewCell.cellBorderWidth
             cell.contentView.backgroundColor = .white
             setupCellsLabelConstraints(label: label, cell: cell)
             
@@ -142,7 +151,8 @@ private extension VerificationCodeTextField {
             }
         }
         
-        setCellsStyle(borderColor: Constants.Colors.emptyStatecolor, labelColor: Constants.Colors.emptyStatecolor,withAnimation: false)
+        setCellsStyle(borderColor: Constants.Colors.emptyStatecolor, labelColor: Constants.Colors.emptyStatecolor
+                      ,withAnimation: false)
         
         return stackView
     }
@@ -151,8 +161,8 @@ private extension VerificationCodeTextField {
         let slashLabel = UILabel()
         
         slashLabel.translatesAutoresizingMaskIntoConstraints = false
-        slashLabel.text = Constants.digitsSeparator
-        slashLabel.font = Constants.digitFontStyle
+        slashLabel.text = Constants.Separator.digitsSeparator
+        slashLabel.font = Constants.Separator.separatorFontStyle
         slashLabel.textAlignment = .center
         slashLabel.isUserInteractionEnabled = false
         
@@ -161,8 +171,10 @@ private extension VerificationCodeTextField {
     
     func setupCellsLabelConstraints(label: UILabel,cell: UICollectionViewCell) {
         NSLayoutConstraint.activate([
-            NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: cell, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: cell, attribute: .centerY, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal,
+                               toItem: cell, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal,
+                               toItem: cell, attribute: .centerY, multiplier: 1, constant: 0),
         ])
     }
     
@@ -179,7 +191,7 @@ private extension VerificationCodeTextField {
     
     @objc
     private func textDidChange() {
-        guard let text = self.text, text.count <= digitLabels.count else {return}
+        guard let text = text, text.count <= digitLabels.count else {return}
         
         for i in 0 ..< digitLabels.count {
             let currentLabel = digitLabels[i]
@@ -188,17 +200,18 @@ private extension VerificationCodeTextField {
                 let index = text.index(text.startIndex, offsetBy: i)
                 currentLabel.text = String(text[index])
             } else {
-                currentLabel.text? = Constants.labelPlaceholder
+                currentLabel.text? = Constants.UILabel.labelPlaceholder
             }
         }
         
         if text.count == digitLabels.count {
-            didEnterLastDigit?(text)
+            didEnterLastDigitAction?(text)
         }
     }
     
     @objc
     private func editingStarted() {
-        setCellsStyle(borderColor: Constants.Colors.typingStateColor, labelColor: Constants.Colors.typingStateDigitColor,withAnimation: false)
+        setCellsStyle(borderColor: Constants.Colors.typingStateColor, labelColor: Constants.Colors.typingStateDigitColor
+                      ,withAnimation: false)
     }
 }
