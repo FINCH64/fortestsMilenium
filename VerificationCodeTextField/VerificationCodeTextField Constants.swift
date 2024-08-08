@@ -21,28 +21,28 @@ extension VerificationCodeTextField {
             static let sucessStateDigitColor: UIColor = UIColor(named: "Blue 500") ?? .blue
             static let errorStateDigitColor: UIColor = UIColor(named: "Red 500") ?? .red
         }
-        
+
         enum UIStackView {
             static let spacingBetweenCells: CGFloat = 4
             static let cellsCount: Int = 6
         }
-        
+
         enum UITextField {
             static let fontStyle: UIFont = UIFont(name: "Roboto", size: 16) ?? UIFont.systemFont(ofSize: 16)
         }
-        
+
         enum UICollectionViewCell {
             static let cellCornerRadius: CGFloat = 8
             static let cellBorderWidth: CGFloat = 4
             static let cellHeight: CGFloat = 40
             static let cellWidth: CGFloat = 36
         }
-        
+
         enum UILabel {
             static let labelPlaceholder: String = "0"
             static let digitFontStyle: UIFont = UIFont(name: "Roboto", size: 16) ?? UIFont.systemFont(ofSize: 16)
         }
-        
+
         enum Separator {
             static let separatorFontStyle: UIFont = UIFont(name: "Roboto", size: 16) ?? UIFont.systemFont(ofSize: 16)
             static let digitsSeparator: String = "-"
@@ -54,12 +54,12 @@ extension VerificationCodeTextField {
             static let delta: CGFloat = 1
         }
     }
-    
+
     enum States {
         case empty
         case typing
         case sucess
         case error
     }
-    
+
 }

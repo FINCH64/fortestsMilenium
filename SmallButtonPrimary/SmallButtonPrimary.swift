@@ -1,15 +1,15 @@
 //
-//  PrimaryButton.swift
+//  SmallButton.swift
 //  fortests
 //
-//  Created by Alexey on 6.08.24.
+//  Created by Alexey on 8.08.24.
 //
 
 import UIKit
 
 // MARK: - Implement PrimaryButton
 
-class PrimaryButton: UIButton {
+class SmallButtonPrimary: UIButton {
 
     private var didPressedAction: (() -> ())?
     private var isConfigured: Bool = false
@@ -27,15 +27,11 @@ class PrimaryButton: UIButton {
         switch toState {
         case .`default`:
             setButtonStyle(newBackgroundColor: Constants.Colors.defaultStateColor)
-        case .inactive:
-            setButtonStyle(newBackgroundColor: Constants.Colors.inactiveStateColor)
         case .clicked:
             setButtonStyle(newBackgroundColor: Constants.Colors.clickedStateColor)
-        case .loading:
-            setButtonStyle(newBackgroundColor: Constants.Colors.loadingStateColor)
         }
     }
-
+    
     func setButtonStyle(newBackgroundColor: UIColor) {
         backgroundColor = newBackgroundColor
     }
@@ -56,20 +52,22 @@ class PrimaryButton: UIButton {
         super.touchesCancelled(touches, with: event)
         updateState(toState: .default)
     }
+    
+    @IBAction override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        updateState(toState: .default)
+    }
 }
 
-private extension PrimaryButton {
+private extension SmallButtonPrimary {
 
     // MARK: - UI Setup
 
     private func configure(titleText: String?) {
         guard isConfigured == false else {return}
-
+        
         setTitle(titleText ?? Constants.UILabel.titleText, for: .normal)
-        setTitleColor(Constants.Colors.defaultStateTextColor , for: .normal)
-        setTitleColor(Constants.Colors.inactiveTextColor, for: .disabled)
-        setTitleColor(Constants.Colors.clickedStateTextColor, for: .selected)
-
+        setTitleColor(Constants.Colors.defaultTextColor , for: .normal)
         layer.cornerRadius = Constants.UIButton.cornerRadius
         updateState(toState: .default)
         isConfigured.toggle()

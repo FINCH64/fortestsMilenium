@@ -1,19 +1,19 @@
 //
-//  PrimaryButton.swift
+//  SecondaryButton.swift
 //  fortests
 //
-//  Created by Alexey on 6.08.24.
+//  Created by Alexey on 7.08.24.
 //
 
 import UIKit
 
 // MARK: - Implement PrimaryButton
 
-class PrimaryButton: UIButton {
+class SecondaryButton: UIButton {
 
     private var didPressedAction: (() -> ())?
     private var isConfigured: Bool = false
-
+    
     public init(frame: CGRect, title: String?) {
         super.init(frame: frame)
         configure(titleText: title)
@@ -31,11 +31,9 @@ class PrimaryButton: UIButton {
             setButtonStyle(newBackgroundColor: Constants.Colors.inactiveStateColor)
         case .clicked:
             setButtonStyle(newBackgroundColor: Constants.Colors.clickedStateColor)
-        case .loading:
-            setButtonStyle(newBackgroundColor: Constants.Colors.loadingStateColor)
         }
     }
-
+    
     func setButtonStyle(newBackgroundColor: UIColor) {
         backgroundColor = newBackgroundColor
     }
@@ -56,20 +54,25 @@ class PrimaryButton: UIButton {
         super.touchesCancelled(touches, with: event)
         updateState(toState: .default)
     }
+
+    @IBAction override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        updateState(toState: .default)
+    }
 }
 
-private extension PrimaryButton {
+private extension SecondaryButton {
 
     // MARK: - UI Setup
 
     private func configure(titleText: String?) {
         guard isConfigured == false else {return}
-
+        
         setTitle(titleText ?? Constants.UILabel.titleText, for: .normal)
         setTitleColor(Constants.Colors.defaultStateTextColor , for: .normal)
         setTitleColor(Constants.Colors.inactiveTextColor, for: .disabled)
         setTitleColor(Constants.Colors.clickedStateTextColor, for: .selected)
-
+        
         layer.cornerRadius = Constants.UIButton.cornerRadius
         updateState(toState: .default)
         isConfigured.toggle()

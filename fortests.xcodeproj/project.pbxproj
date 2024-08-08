@@ -19,6 +19,12 @@
 		8A29EE272C624E6400B31471 /* PrimaryButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE262C624E6400B31471 /* PrimaryButton Constants.swift */; };
 		8A29EE282C624E6400B31471 /* PrimaryButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE262C624E6400B31471 /* PrimaryButton Constants.swift */; };
 		8A29EE292C624E6400B31471 /* PrimaryButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE262C624E6400B31471 /* PrimaryButton Constants.swift */; };
+		8A29EE2C2C63843000B31471 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE2B2C63843000B31471 /* SecondaryButton.swift */; };
+		8A29EE2E2C63844500B31471 /* SecondaryButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE2D2C63844500B31471 /* SecondaryButton Constants.swift */; };
+		8A62D6F42C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6F32C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift */; };
+		8A62D6F62C64FFDD00C32AB4 /* SmallButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6F52C64FFDD00C32AB4 /* SmallButtonPrimary.swift */; };
+		8A62D6F92C651DB600C32AB4 /* SmallButtomSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6F82C651DB600C32AB4 /* SmallButtomSecondary.swift */; };
+		8A62D6FB2C651DD000C32AB4 /* SmallFileSecondary Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6FA2C651DD000C32AB4 /* SmallFileSecondary Constants.swift */; };
 		8AA1BC872C57DC2B00B3C529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC862C57DC2B00B3C529 /* AppDelegate.swift */; };
 		8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC882C57DC2B00B3C529 /* SceneDelegate.swift */; };
 		8AA1BC8B2C57DC2B00B3C529 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC8A2C57DC2B00B3C529 /* ViewController.swift */; };
@@ -55,6 +61,12 @@
 		8A29EE1D2C621C7F00B31471 /* VerificationCodeTextField Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerificationCodeTextField Constants.swift"; sourceTree = "<group>"; };
 		8A29EE222C624E3F00B31471 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		8A29EE262C624E6400B31471 /* PrimaryButton Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimaryButton Constants.swift"; sourceTree = "<group>"; };
+		8A29EE2B2C63843000B31471 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		8A29EE2D2C63844500B31471 /* SecondaryButton Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondaryButton Constants.swift"; sourceTree = "<group>"; };
+		8A62D6F32C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmallButtonPrimary Constants.swift"; sourceTree = "<group>"; };
+		8A62D6F52C64FFDD00C32AB4 /* SmallButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButtonPrimary.swift; sourceTree = "<group>"; };
+		8A62D6F82C651DB600C32AB4 /* SmallButtomSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButtomSecondary.swift; sourceTree = "<group>"; };
+		8A62D6FA2C651DD000C32AB4 /* SmallFileSecondary Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmallFileSecondary Constants.swift"; sourceTree = "<group>"; };
 		8AA1BC832C57DC2B00B3C529 /* fortests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fortests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA1BC862C57DC2B00B3C529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AA1BC882C57DC2B00B3C529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,9 +119,39 @@
 			path = PrimaryButton;
 			sourceTree = "<group>";
 		};
+		8A29EE2A2C63840D00B31471 /* SecondaryButton */ = {
+			isa = PBXGroup;
+			children = (
+				8A29EE2B2C63843000B31471 /* SecondaryButton.swift */,
+				8A29EE2D2C63844500B31471 /* SecondaryButton Constants.swift */,
+			);
+			path = SecondaryButton;
+			sourceTree = "<group>";
+		};
+		8A62D6F22C64FF9800C32AB4 /* SmallButtonPrimary */ = {
+			isa = PBXGroup;
+			children = (
+				8A62D6F32C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift */,
+				8A62D6F52C64FFDD00C32AB4 /* SmallButtonPrimary.swift */,
+			);
+			path = SmallButtonPrimary;
+			sourceTree = "<group>";
+		};
+		8A62D6F72C651D9600C32AB4 /* SmallButtonSecondary */ = {
+			isa = PBXGroup;
+			children = (
+				8A62D6F82C651DB600C32AB4 /* SmallButtomSecondary.swift */,
+				8A62D6FA2C651DD000C32AB4 /* SmallFileSecondary Constants.swift */,
+			);
+			path = SmallButtonSecondary;
+			sourceTree = "<group>";
+		};
 		8AA1BC7A2C57DC2B00B3C529 = {
 			isa = PBXGroup;
 			children = (
+				8A62D6F72C651D9600C32AB4 /* SmallButtonSecondary */,
+				8A62D6F22C64FF9800C32AB4 /* SmallButtonPrimary */,
+				8A29EE2A2C63840D00B31471 /* SecondaryButton */,
 				8A29EE212C624E1400B31471 /* PrimaryButton */,
 				8AA1BCBF2C58E74C00B3C529 /* VerificationCodeTextField */,
 				8AA1BC852C57DC2B00B3C529 /* fortests */,
@@ -303,16 +345,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A29EE2C2C63843000B31471 /* SecondaryButton.swift in Sources */,
 				8A29EE232C624E3F00B31471 /* PrimaryButton.swift in Sources */,
 				8A29EE1E2C621C8000B31471 /* VerificationCodeTextField Constants.swift in Sources */,
+				8A62D6F92C651DB600C32AB4 /* SmallButtomSecondary.swift in Sources */,
 				8AA1BC8B2C57DC2B00B3C529 /* ViewController.swift in Sources */,
 				8AA1BCBE2C57DDF000B3C529 /* LaunchView.swift in Sources */,
 				8A29EE1A2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */,
+				8A62D6FB2C651DD000C32AB4 /* SmallFileSecondary Constants.swift in Sources */,
+				8A62D6F42C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift in Sources */,
 				8AA1BC872C57DC2B00B3C529 /* AppDelegate.swift in Sources */,
 				8AA1BCC12C58E77400B3C529 /* VerificationCodeTextField.swift in Sources */,
 				8A29EE272C624E6400B31471 /* PrimaryButton Constants.swift in Sources */,
 				8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */,
 				8AA1BC912C57DC2B00B3C529 /* fortests.xcdatamodeld in Sources */,
+				8A29EE2E2C63844500B31471 /* SecondaryButton Constants.swift in Sources */,
+				8A62D6F62C64FFDD00C32AB4 /* SmallButtonPrimary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
