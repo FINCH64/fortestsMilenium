@@ -20,7 +20,7 @@
 		8A29EE282C624E6400B31471 /* PrimaryButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE262C624E6400B31471 /* PrimaryButton Constants.swift */; };
 		8A29EE292C624E6400B31471 /* PrimaryButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE262C624E6400B31471 /* PrimaryButton Constants.swift */; };
 		8A29EE2C2C63843000B31471 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE2B2C63843000B31471 /* SecondaryButton.swift */; };
-		8A29EE2E2C63844500B31471 /* SecondaryButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE2D2C63844500B31471 /* SecondaryButton Constants.swift */; };
+		8A29EE2E2C63844500B31471 /* SecondaryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE2D2C63844500B31471 /* SecondaryConstants.swift */; };
 		8A62D6F42C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6F32C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift */; };
 		8A62D6F62C64FFDD00C32AB4 /* SmallButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6F52C64FFDD00C32AB4 /* SmallButtonPrimary.swift */; };
 		8A62D6F92C651DB600C32AB4 /* SmallButtomSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6F82C651DB600C32AB4 /* SmallButtomSecondary.swift */; };
@@ -62,7 +62,7 @@
 		8A29EE222C624E3F00B31471 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		8A29EE262C624E6400B31471 /* PrimaryButton Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimaryButton Constants.swift"; sourceTree = "<group>"; };
 		8A29EE2B2C63843000B31471 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
-		8A29EE2D2C63844500B31471 /* SecondaryButton Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondaryButton Constants.swift"; sourceTree = "<group>"; };
+		8A29EE2D2C63844500B31471 /* SecondaryConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryConstants.swift; sourceTree = "<group>"; };
 		8A62D6F32C64FFCC00C32AB4 /* SmallButtonPrimary Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmallButtonPrimary Constants.swift"; sourceTree = "<group>"; };
 		8A62D6F52C64FFDD00C32AB4 /* SmallButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButtonPrimary.swift; sourceTree = "<group>"; };
 		8A62D6F82C651DB600C32AB4 /* SmallButtomSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButtomSecondary.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				8A29EE2B2C63843000B31471 /* SecondaryButton.swift */,
-				8A29EE2D2C63844500B31471 /* SecondaryButton Constants.swift */,
+				8A29EE2D2C63844500B31471 /* SecondaryConstants.swift */,
 			);
 			path = SecondaryButton;
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 				8A29EE272C624E6400B31471 /* PrimaryButton Constants.swift in Sources */,
 				8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */,
 				8AA1BC912C57DC2B00B3C529 /* fortests.xcdatamodeld in Sources */,
-				8A29EE2E2C63844500B31471 /* SecondaryButton Constants.swift in Sources */,
+				8A29EE2E2C63844500B31471 /* SecondaryConstants.swift in Sources */,
 				8A62D6F62C64FFDD00C32AB4 /* SmallButtonPrimary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
