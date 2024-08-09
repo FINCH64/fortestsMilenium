@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - Implement PrimaryButton
+// MARK: - Implement SmallButtonSecondary
 
 class SmallButtonSecondary: UIButton {
 

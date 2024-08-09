@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A16B2172C666F9A00522A76 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A16B2162C666F9A00522A76 /* IconButton.swift */; };
+		8A16B2192C666FBA00522A76 /* IconButton Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A16B2182C666FBA00522A76 /* IconButton Constants.swift */; };
 		8A29EE1A2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */; };
 		8A29EE1B2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */; };
 		8A29EE1C2C5D0B2C00B31471 /* UITextField+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A16B2162C666F9A00522A76 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		8A16B2182C666FBA00522A76 /* IconButton Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IconButton Constants.swift"; sourceTree = "<group>"; };
 		8A29EE192C5D0B2C00B31471 /* UITextField+Shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Shake.swift"; sourceTree = "<group>"; };
 		8A29EE1D2C621C7F00B31471 /* VerificationCodeTextField Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VerificationCodeTextField Constants.swift"; sourceTree = "<group>"; };
 		8A29EE222C624E3F00B31471 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -110,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A16B2152C666F7700522A76 /* IconButton */ = {
+			isa = PBXGroup;
+			children = (
+				8A16B2162C666F9A00522A76 /* IconButton.swift */,
+				8A16B2182C666FBA00522A76 /* IconButton Constants.swift */,
+			);
+			path = IconButton;
+			sourceTree = "<group>";
+		};
 		8A29EE212C624E1400B31471 /* PrimaryButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +162,7 @@
 		8AA1BC7A2C57DC2B00B3C529 = {
 			isa = PBXGroup;
 			children = (
+				8A16B2152C666F7700522A76 /* IconButton */,
 				8A62D6F72C651D9600C32AB4 /* SmallButtonSecondary */,
 				8A62D6F22C64FF9800C32AB4 /* SmallButtonPrimary */,
 				8A29EE2A2C63840D00B31471 /* SecondaryButton */,
@@ -358,7 +372,9 @@
 				8AA1BCC12C58E77400B3C529 /* VerificationCodeTextField.swift in Sources */,
 				8A29EE272C624E6400B31471 /* PrimaryButton Constants.swift in Sources */,
 				8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */,
+				8A16B2192C666FBA00522A76 /* IconButton Constants.swift in Sources */,
 				8AA1BC912C57DC2B00B3C529 /* fortests.xcdatamodeld in Sources */,
+				8A16B2172C666F9A00522A76 /* IconButton.swift in Sources */,
 				8A29EE2E2C63844500B31471 /* SecondaryConstants.swift in Sources */,
 				8A62D6F62C64FFDD00C32AB4 /* SmallButtonPrimary.swift in Sources */,
 			);
