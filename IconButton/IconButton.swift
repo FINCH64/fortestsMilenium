@@ -36,7 +36,7 @@ private extension IconButton {
         guard isConfigured == false else {return}
 
         self.setBackgroundImage(Constants.defaultIcon, for: .normal)
-        self.setBackgroundImage(Constants.selectedIcon, for: .se)
+        //self.setBackgroundImage(Constants.selectedIcon, for: .se)
         isConfigured.toggle()
     }
 }

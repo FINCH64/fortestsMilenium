@@ -25,7 +25,7 @@ extension SmallButtonSecondary {
         enum UIButton {
             static let cornerRadius: CGFloat = 14
         }
-    }
+      }
 
     enum States {
         case `default`
