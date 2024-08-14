@@ -8,7 +8,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //let microserviceForVeryfiing: MicroService = someService
+    let interactorNetLayer = MainNetworkingService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,33 +33,10 @@ class ViewController: UIViewController {
         let primaryButton = PrimaryButton(frame: CGRect(x: 20, y: 600, width: 200, height: 48), title: "Label2")
         
         primaryButton.setTouchHandler(handler: {
-            //guard let microserviceForVeryfiing = microserviceForVeryfiing.shared
-            //if let microserviceForVeryfiing.shared.verify {
-            //do some logic or screen transition
-            //}
             
             async {
-                do {
-                    var netService = MainNetworkingService()
-                    var queryComponenets = [URLQueryItem]()
-                    var requestValues = [HTTPRequestHeader]()
-                    var bodyString = "{\n\"email\": \"saffeuqueddasa-6980@yopmail.com\",\n\"password\": \"1234$Qwer_\"\n }"
-                    print(bodyString)
-                    requestValues.append(HTTPRequestHeader(key: "Content-Type", value: "application/json" ))
-                    requestValues.append(HTTPRequestHeader(key: "accept", value: "*/*" ))
-                    
-                    var requestParams = NetworkingParams(httpMethod: .post,
-                                                         url: URL(string: "https://api-dev.mibank2.andersenlab.dev/uas/api/user/authenticate"),
-                                                         query: [URLQueryItem](), values: requestValues, request: nil, body: bodyString)
-                    
-                    var _: ResponseStruct = try await netService.execute(params: requestParams)
-                    let a = ""
-                } catch let d as Data {
-                    print(try JSONDecoder().decode(StatusResponseStruct.self, from: d))
-                }
+                await self.interactorNetLayer.checkCredentialsValidity(email: "saffeuqueddasa-6980@yopmail.com", password: "1234$Qwer_") // call interactor method to check data by request
             }
-            
-            
             
             let alert = UIAlertController(title: "Sucess", message: "You sucessifuly logged in with code - !", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
@@ -69,6 +46,7 @@ class ViewController: UIViewController {
             self.present(alert,animated: true)
             primaryButton.updateState(toState: .inactive)
             //primaryButton.isEnabled = false
+            
         })
         
         let secondaryButton = SecondaryButton(frame: CGRect(x: 20, y: 700, width: 200, height: 48), title: "Label2")
@@ -137,7 +115,4 @@ class ViewController: UIViewController {
 //        ])
         
     }
-    
-
 }
-

@@ -96,15 +96,16 @@ public final class MainNetworkingService: NSObject, NetworkingProtocol {
 
         var urlBuilder = URLComponents(string: url.absoluteString)
 
-        query.forEach {
-            urlBuilder?.queryItems?.append($0)
-        }
+        urlBuilder!.queryItems = query
 
         guard let updatedURL = urlBuilder?.url else {
             throw NetworkingError.badURL
         }
 
         var newURLRequest = URLRequest(url: updatedURL)
+
+
+
         newURLRequest.httpMethod = httpMethod.string
         values.forEach {
             newURLRequest.addValue($0.value, forHTTPHeaderField: $0.key)

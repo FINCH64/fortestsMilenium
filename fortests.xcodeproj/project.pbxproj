@@ -30,6 +30,8 @@
 		8A62D6FB2C651DD000C32AB4 /* SmallFileSecondary Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62D6FA2C651DD000C32AB4 /* SmallFileSecondary Constants.swift */; };
 		8A7B938D2C6B65DA00C4D5C2 /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B938C2C6B65D900C4D5C2 /* PropertyWrappers.swift */; };
 		8A7B938F2C6B71C500C4D5C2 /* ResponseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B938E2C6B71C500C4D5C2 /* ResponseStruct.swift */; };
+		8A7B93912C6CF5A800C4D5C2 /* CredentialsValidationMicroservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B93902C6CF5A800C4D5C2 /* CredentialsValidationMicroservice.swift */; };
+		8A7B93932C6CFF9C00C4D5C2 /* CredentialsValidity+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B93922C6CFF9C00C4D5C2 /* CredentialsValidity+Errors.swift */; };
 		8AA1BC872C57DC2B00B3C529 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC862C57DC2B00B3C529 /* AppDelegate.swift */; };
 		8AA1BC892C57DC2B00B3C529 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC882C57DC2B00B3C529 /* SceneDelegate.swift */; };
 		8AA1BC8B2C57DC2B00B3C529 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1BC8A2C57DC2B00B3C529 /* ViewController.swift */; };
@@ -77,6 +79,8 @@
 		8A62D6FA2C651DD000C32AB4 /* SmallFileSecondary Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmallFileSecondary Constants.swift"; sourceTree = "<group>"; };
 		8A7B938C2C6B65D900C4D5C2 /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
 		8A7B938E2C6B71C500C4D5C2 /* ResponseStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStruct.swift; sourceTree = "<group>"; };
+		8A7B93902C6CF5A800C4D5C2 /* CredentialsValidationMicroservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsValidationMicroservice.swift; sourceTree = "<group>"; };
+		8A7B93922C6CFF9C00C4D5C2 /* CredentialsValidity+Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CredentialsValidity+Errors.swift"; sourceTree = "<group>"; };
 		8AA1BC832C57DC2B00B3C529 /* fortests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fortests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA1BC862C57DC2B00B3C529 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AA1BC882C57DC2B00B3C529 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				8A16B21B2C6B5F6600522A76 /* RequestsModule.swift */,
 				8A7B938C2C6B65D900C4D5C2 /* PropertyWrappers.swift */,
 				8A7B938E2C6B71C500C4D5C2 /* ResponseStruct.swift */,
+				8A7B93902C6CF5A800C4D5C2 /* CredentialsValidationMicroservice.swift */,
+				8A7B93922C6CFF9C00C4D5C2 /* CredentialsValidity+Errors.swift */,
 			);
 			path = NetLayer;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A29EE2C2C63843000B31471 /* SecondaryButton.swift in Sources */,
+				8A7B93932C6CFF9C00C4D5C2 /* CredentialsValidity+Errors.swift in Sources */,
 				8A29EE232C624E3F00B31471 /* PrimaryButton.swift in Sources */,
 				8A7B938F2C6B71C500C4D5C2 /* ResponseStruct.swift in Sources */,
 				8A29EE1E2C621C8000B31471 /* VerificationCodeTextField Constants.swift in Sources */,
@@ -396,6 +403,7 @@
 				8A16B2172C666F9A00522A76 /* IconButton.swift in Sources */,
 				8A29EE2E2C63844500B31471 /* SecondaryConstants.swift in Sources */,
 				8A7B938D2C6B65DA00C4D5C2 /* PropertyWrappers.swift in Sources */,
+				8A7B93912C6CF5A800C4D5C2 /* CredentialsValidationMicroservice.swift in Sources */,
 				8A62D6F62C64FFDD00C32AB4 /* SmallButtonPrimary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,7 +595,7 @@
 				INFOPLIST_FILE = fortests/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight $(MARKETING_VERSION)";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -613,7 +621,7 @@
 				INFOPLIST_FILE = fortests/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight $(MARKETING_VERSION)";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
