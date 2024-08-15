@@ -103,11 +103,30 @@ class ViewController: UIViewController {
             secondaryButton.isEnabled = false
             })
         
+        let iconButton = IconButton(frame: CGRect(x: 50, y: 200, width: 40, height: 40))
+            secondaryButton.setTouchHandler(handler: {
+            //guard let microserviceForVeryfiing = microserviceForVeryfiing.shared
+            //if let microserviceForVeryfiing.shared.verify {
+            //do some logic or screen transition
+            //}
+            
+            let alert = UIAlertController(title: "error", message: "You eyed something - !", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            
+            alert.addAction(okAction)
+            
+            self.present(alert,animated: true)
+            secondaryButton.updateState(toState: .inactive)
+            secondaryButton.isUserInteractionEnabled = false
+            secondaryButton.isEnabled = false
+            })
+        
         self.view.addSubview(verificationCodeTextField)
         self.view.addSubview(primaryButton)
         self.view.addSubview(secondaryButton)
         self.view.addSubview(smallButtonPrimary)
         self.view.addSubview(smallButtonSecondary)
+        self.view.addSubview(iconButton)
 
 //        NSLayoutConstraint.activate([
 //            NSLayoutConstraint(item: verificationCodeTextField, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),

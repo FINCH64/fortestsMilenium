@@ -7,36 +7,89 @@
 
 import UIKit
 
-// MARK: - Implement IconButton
+public class IconButton: UIButton {
 
-class IconButton: UIButton {
-
-    private var didPressedAction: (() -> Void)?
-    private var isConfigured: Bool = false
-
-    public init(frame: CGRect, title: String?) {
-        super.init(frame: frame)
-        configure(titleText: title)
+    // MARK: - Properties
+    private var buttonDidPressed: (() -> Void)?
+    public var isChecked: Bool = false {
+        didSet {
+            setButtonImage()
+        }
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    // MARK: - UI Components
+    private lazy var iconButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.frame.size = CGSize(width: Constants.Sizes.buttonWidth,
+                                   height: Constants.Sizes.buttonHeight)
+        //button.backgroundColor = .red
+        return button
+        
+    }()
+
+    // MARK: - LifeCycle
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+        setupButton()
+    }
+
+    public init() {
+        super.init(frame: .zero)
+        setupView()
+        setupButton()
     }
     
-    public func setTouchHandler(handler: @escaping (() -> ())) {
-        didPressedAction = handler
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    // MARK: - Methods
+
+    public func setTouchHandler(handler: @escaping (() -> Void)) {
+        buttonDidPressed = handler
+    }
+}
+
+// MARK: - Checkbox Setup
+private extension IconButton {
+
+    func setupButton() {
+        iconButton.tintColor = Constants.Colors.tintColor
+        setButtonImage()
+        iconButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
     }
 }
 
 private extension IconButton {
 
-    // MARK: - UI Setup
+    func setupView() {
+        addSubview(iconButton)
+        
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint(item: iconButton, attribute: .centerX, relatedBy: .equal,
+                               toItem: self, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: iconButton, attribute: .centerY, relatedBy: .equal,
+                               toItem: self, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
+    }
+}
 
-    private func configure(titleText: String?) {
-        guard isConfigured == false else {return}
+private extension IconButton {
 
-        self.setBackgroundImage(Constants.defaultIcon, for: .normal)
-        //self.setBackgroundImage(Constants.selectedIcon, for: .se)
-        isConfigured.toggle()
+    @objc func tapButton() {
+        isChecked.toggle()
+        setButtonImage()
+        buttonDidPressed?()
+    }
+
+    func setButtonImage() {
+        if isChecked {
+            let test = Constants.Images.checkImage
+            iconButton.setImage(Constants.Images.checkImage, for: .normal)
+        } else {
+            let test = Constants.Images.uncheckedImge
+            iconButton.setImage(Constants.Images.uncheckedImge, for: .normal)
+        }
     }
 }

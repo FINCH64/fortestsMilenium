@@ -10,13 +10,20 @@ import UIKit
 extension IconButton {
 
     enum Constants {
-        static let defaultIcon = UIImage(systemName: "eye-open")
-        static let selectedIcon = UIImage(systemName: "eye-closed")
-        static let iconOpacity = 0.38
-    }
 
-    enum States {
-        case `default`
-        case clicked
+        enum Colors {
+            static let tintColor: UIColor = .lightGray
+        }
+        
+        enum Sizes {
+            static let buttonWidth: CGFloat = 40
+            static let buttonHeight: CGFloat = 40
+            static let buttonOpacity: CGFloat = 0.62
+        }
+
+        enum Images {
+            static let checkImage = UIImage(named: "eye-open")?.withRenderingMode(.alwaysTemplate)
+            static let uncheckedImge = UIImage(named: "eye-closed")?.withRenderingMode(.alwaysTemplate)
+        }
     }
 }
