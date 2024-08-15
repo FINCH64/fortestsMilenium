@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Verification text field implementation
 
-class VerificationCodeTextField: UITextField {
+class VerificationCodeTextField: UITextField, Shakeable {
 
     private var didEnterLastDigitAction: ((String) -> ())?
     private var isConfigured: Bool = false

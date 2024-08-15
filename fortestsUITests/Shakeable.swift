@@ -12,7 +12,7 @@
 import UIKit
 import Foundation
 
-/** 
+/**
  @enum ShakeDirection
 
  Enum that specifies the direction of the shake
@@ -30,16 +30,14 @@ Build your own Cocoa Touch Frameworks, in pure Swift: http://bit.ly/1gNLyZ8
 Deleting contents from Xcode Derived data folder: http://bit.ly/1ItWqSo
 */
 
-public extension UITextField {
+public protocol Shakeable where Self: UIView {
     
     /**
-     Shake the UITextField.
+     Shake the Entity.
     
-     Shake the text field with default values.
+     Shake the entity with default values.
     */
-    func shake() {
-        self.shake(10, withDelta: 5, completion: nil)
-    }
+    func shake()
     
     /**
      Shake the UITextField.
@@ -50,11 +48,9 @@ public extension UITextField {
      :param: delta The width of the shake.
     */
     func shake(_ times: Int,
-        withDelta delta: CGFloat) {
-            self.shake(times, withDelta: delta, completion: nil)
-    }
+        withDelta delta: CGFloat)
     
-    /** 
+    /**
      Shake the UITextField.
     
      Shake the text field a given number of times.
@@ -65,11 +61,9 @@ public extension UITextField {
     */
     func shake(_ times: Int,
         withDelta delta: CGFloat,
-        completion handler: (() -> Void)?) {
-            self._shake(times, direction: 1, currentTimes: 0, withDelta: delta, speed: 0.03, shakeDirection: ShakeDirection.horizontal, completion: handler)
-    }
+        completion handler: (() -> Void)?)
     
-    /** 
+    /**
      Shake the UITextField at a custom speed.
     
      Shake the text field a given number of times with a given speed.
@@ -80,11 +74,9 @@ public extension UITextField {
     */
     func shake(_ times: Int,
         withDelta delta: CGFloat,
-        speed interval: TimeInterval) {
-            self.shake(times, withDelta: delta, speed: interval, completion: nil)
-    }
+        speed interval: TimeInterval)
     
-    /** 
+    /**
      Shake the UITextField at a custom speed.
     
      Shake the text field a given number of times with a given speed.
@@ -97,11 +89,9 @@ public extension UITextField {
     func shake(_ times: Int,
         withDelta delta: CGFloat,
         speed interval: TimeInterval,
-        completion handler: (() -> Void)?) {
-            self._shake(times, direction: 1, currentTimes: 0, withDelta: delta, speed: interval, shakeDirection: ShakeDirection.horizontal, completion: handler)
-    }
+        completion handler: (() -> Void)?)
     
-    /** 
+    /**
      Shake the UITextField at a custom speed.
     
      Shake the text field a given number of times with a given speed.
@@ -114,11 +104,9 @@ public extension UITextField {
     func shake(_ times: Int,
         withDelta delta: CGFloat,
         speed interval: TimeInterval,
-        shakeDirection: ShakeDirection) {
-            self.shake(times, withDelta: delta, speed: interval, shakeDirection: shakeDirection, completion: nil)
-    }
+        shakeDirection: ShakeDirection)
     
-    /** 
+    /**
      Shake the UITextField at a custom speed.
     
      Shake the text field a given number of times with a given speed.
@@ -133,12 +121,65 @@ public extension UITextField {
         withDelta delta: CGFloat,
         speed interval: TimeInterval,
         shakeDirection: ShakeDirection,
+        completion handler: (() -> Void)?)
+    
+    
+    func _shake(_ times: Int,
+        direction: Int,
+        currentTimes current: Int,
+        withDelta delta: CGFloat,
+        speed interval: TimeInterval,
+        shakeDirection: ShakeDirection,
+        completion handler: (() -> Void)?)
+    
+}
+
+public extension Shakeable {
+    
+    func shake() {
+        self.shake(10, withDelta: 5, completion: nil)
+    }
+
+    func shake(_ times: Int,
+        withDelta delta: CGFloat) {
+            self.shake(times, withDelta: delta, completion: nil)
+    }
+
+    func shake(_ times: Int,
+        withDelta delta: CGFloat,
+        completion handler: (() -> Void)?) {
+            self._shake(times, direction: 1, currentTimes: 0, withDelta: delta, speed: 0.03, shakeDirection: ShakeDirection.horizontal, completion: handler)
+    }
+    
+    func shake(_ times: Int,
+        withDelta delta: CGFloat,
+        speed interval: TimeInterval) {
+            self.shake(times, withDelta: delta, speed: interval, completion: nil)
+    }
+    
+    func shake(_ times: Int,
+        withDelta delta: CGFloat,
+        speed interval: TimeInterval,
+        completion handler: (() -> Void)?) {
+            self._shake(times, direction: 1, currentTimes: 0, withDelta: delta, speed: interval, shakeDirection: ShakeDirection.horizontal, completion: handler)
+    }
+    
+    func shake(_ times: Int,
+        withDelta delta: CGFloat,
+        speed interval: TimeInterval,
+        shakeDirection: ShakeDirection) {
+            self.shake(times, withDelta: delta, speed: interval, shakeDirection: shakeDirection, completion: nil)
+    }
+    
+    func shake(_ times: Int,
+        withDelta delta: CGFloat,
+        speed interval: TimeInterval,
+        shakeDirection: ShakeDirection,
         completion handler: (() -> Void)?) {
             self._shake(times, direction: 1, currentTimes: 0, withDelta: delta, speed: interval, shakeDirection: shakeDirection, completion: handler)
     }
     
-    
-    private func _shake(_ times: Int,
+    func _shake(_ times: Int,
         direction: Int,
         currentTimes current: Int,
         withDelta delta: CGFloat,
@@ -174,5 +215,4 @@ public extension UITextField {
                         completion: handler)
             })
     }
-    
 }

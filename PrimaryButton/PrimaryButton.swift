@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Implement PrimaryButton
 
-class PrimaryButton: UIButton {
+class PrimaryButton: UIButton, Shakeable {
 
     private var didPressedAction: (() -> ())?
     private var isConfigured: Bool = false
@@ -48,6 +48,7 @@ class PrimaryButton: UIButton {
 
     @IBAction override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        self.shake(10, withDelta: 1)
         didPressedAction?()
         updateState(toState: .clicked)
     }
